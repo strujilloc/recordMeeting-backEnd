@@ -10,16 +10,20 @@ var cors = require("cors");
 // Configuration
 const MONGO_PWD = "1EkPVmBj45uclfkF";
 const MONGO_URI =
-  "mongodb+srv://labmember:hiekataken@cluster0-n2ecu.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useMongoClient: false
-});
+  "mongodb+srv://labmember:h!ekataKen@cluster0-n2ecu.mongodb.net/test?retryWrites=true&w=majority";
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+    //useMongoClient: false
+  })
+  .then(() => {
+    console.log("mongoose atlas was successful");
+  })
+  .catch(err => {
+    console.log(err);
+  });
 //mongoose.connect("mongodb://localhost:27017/meeting");
-mongoose.connection.on("connected", () => {
-  console.log("mongoose is connected...");
-});
 
 /* mongoose.connection.on("error", error => {
   console.log(error);
